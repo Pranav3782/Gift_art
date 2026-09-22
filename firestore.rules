@@ -1,0 +1,93 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    // Check if user is an admin based on role or fallback email
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'rohanswakkargiftartstudio@gmail.com' ||
+        request.auth.token.email == 'testadmin@budgetdev.com' ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['ADMIN', 'SUPER_ADMIN']
+      );
+    }
+
+    // Categories: Everyone can read, only admin can manage
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Products: Everyone can read, only admin can manage
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // Users: Owner or admin access
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      // Only users can write their own profiles. Admins can update any profile (e.g. to set roles)
+      // Only Admins can set or modify the `role` field.
+      allow write: if isAdmin() || (isSignedIn() && request.auth.uid == userId && (!request.resource.data.keys().hasAny(['role']) || request.resource.data.role == resource.data.role));
+    }
+
+    // Orders: Owner create/read, admin full control, guest allow create
+    match /orders/{orderId} {
+      allow read: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if true; // Allows guest checkout
+      allow update, delete: if isAdmin();
+    }
+
+    // Customized AI Orders: Owner create/read, admin full control
+    match /customized_orders/{orderId} {
+      allow read: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn();
+      allow update, delete: if isAdmin();
+    }
+
+    // Homepage Configs
+    match /homepageDesktop/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /mobile_homepage_sections/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Homepage sections (newsletter, desktop sections)
+    match /homepage_sections/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Coupons: Everyone can read active status, only admin can write
+    match /coupons/{couponId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Wishlist: Only owner or admin can access
+    match /wishlist/{docId} {
+      allow read: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    // Settings
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Catch-all for other admin tasks
+    match /{path=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

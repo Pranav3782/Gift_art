@@ -1,0 +1,169 @@
+
+{
+  "entities": {
+    "HomepageSection": {
+      "title": "Homepage Section",
+      "description": "Configuration for a homepage section",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "description": { "type": "string" },
+        "ctaText": { "type": "string" },
+        "ctaLink": { "type": "string" },
+        "bgUrl": { "type": "string" },
+        "bannerUrl": { "type": "string" },
+        "mobileUrl": { "type": "string" },
+        "isVisible": { "type": "boolean" },
+        "order": { "type": "number" },
+        "data": { "type": "object", "description": "Custom data specific to the section type" }
+      },
+      "required": ["id"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer order data",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "total": { "type": "number" },
+        "status": { "type": "string", "enum": ["Pending", "Shipped", "Delivered", "Cancelled", "RTO"] },
+        "paymentMethod": { "type": "string" },
+        "items": { "type": "array" },
+        "shippingAddress": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "CustomizedOrder": {
+      "title": "Customized Order",
+      "description": "AI-powered product customization request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "phone": { "type": "string" },
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "originalProductImage": { "type": "string" },
+        "generatedDesignImage": { "type": "string" },
+        "customPrompt": { "type": "string" },
+        "customizationName": { "type": "string" },
+        "occasion": { "type": "string" },
+        "specialInstructions": { "type": "string" },
+        "quantity": { "type": "number" },
+        "price": { "type": "number" },
+        "status": { "type": "string", "enum": ["Pending", "Reviewing Design", "Approved", "In Production", "Ready To Ship", "Delivered", "Cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Coupon": {
+      "title": "Coupon",
+      "description": "Discount coupon configuration",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "discountType": { "type": "string", "enum": ["Percentage", "Flat"] },
+        "value": { "type": "number" },
+        "status": { "type": "string", "enum": ["Active", "Scheduled", "Expired"] },
+        "expiryDate": { "type": "string", "format": "date-time" },
+        "usageCount": { "type": "number" }
+      }
+    },
+    "RTOCase": {
+      "title": "RTO Case",
+      "description": "Return to Origin tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "reason": { "type": "string" },
+        "city": { "type": "string" },
+        "status": { "type": "string" },
+        "lastUpdate": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Product": {
+      "title": "Product",
+      "description": "A gift product in the catalog",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "oldPrice": { "type": "number" },
+        "discount": { "type": "number" },
+        "image": { "type": "string" },
+        "category": { "type": "string" },
+        "subcategory": { "type": "string" },
+        "rating": { "type": "number" },
+        "reviews": { "type": "number" },
+        "inventoryStatus": { "type": "string", "enum": ["In Stock", "Low Stock", "Out of Stock"] },
+        "isNew": { "type": "boolean" },
+        "isBestSeller": { "type": "boolean" },
+        "couponCode": { "type": "string" },
+        "couponDiscount": { "type": "number" },
+        "features": { "type": "array", "items": { "type": "string" } },
+        "specifications": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "price", "category", "subcategory", "image"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Extended user information stored in Firestore",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "admin"] }
+      }
+    }
+  },
+  "auth": {
+    "providers": ["google.com", "password"]
+  },
+  "firestore": {
+    "/homepage_sections/{sectionId}": {
+      "schema": "HomepageSection",
+      "description": "Homepage section configurations (Desktop)"
+    },
+    "/mobile_homepage_sections/{sectionId}": {
+      "schema": "HomepageSection",
+      "description": "Mobile-specific homepage section configurations"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Store products"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders"
+    },
+    "/customized_orders/{orderId}": {
+      "schema": "CustomizedOrder",
+      "description": "AI-powered custom orders"
+    },
+    "/coupons/{couponId}": {
+      "schema": "Coupon",
+      "description": "Store coupons"
+    },
+    "/rto/{rtoId}": {
+      "schema": "RTOCase",
+      "description": "RTO tracking cases"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles"
+    }
+  }
+}

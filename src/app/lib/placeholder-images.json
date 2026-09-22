@@ -1,0 +1,58 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-main",
+      "description": "Happy children playing with personalized gift boxes",
+      "imageUrl": "https://rohanwakkar.sirv.com/toneed.png",
+      "imageHint": "happy kids"
+    },
+    {
+      "id": "backpack-pink",
+      "description": "Cute personalized pink school backpack for girls",
+      "imageUrl": "https://rohanwakkar.sirv.com/bags%201vs.png",
+      "imageHint": "kids backpack"
+    },
+    {
+      "id": "backpack-dino",
+      "description": "Dinosaur themed school backpack for boys",
+      "imageUrl": "https://rohanwakkar.sirv.com/ChatGPT%20Image%20Jun%2019%2C%202026%2C%2008_56_30%20PM.png",
+      "imageHint": "dino backpack"
+    },
+    {
+      "id": "lunch-bag-blue",
+      "description": "Insulated blue lunch bag with customized name",
+      "imageUrl": "https://rohanwakkar.sirv.com/ChatGPT%20Image%20Jun%2019%2C%202026%2C%2009_21_15%20PM.png",
+      "imageHint": "kids lunchbag"
+    },
+    {
+      "id": "bottle-steel",
+      "description": "Personalized stainless steel water bottle for school",
+      "imageUrl": "https://rohanwakkar.sirv.com/ChatGPT%20Image%20Jun%2019%2C%202026%2C%2009_00_07%20PM.png",
+      "imageHint": "kids bottle"
+    },
+    {
+      "id": "category-bags",
+      "description": "Customized school bags and backpacks",
+      "imageUrl": "https://rohanwakkar.sirv.com/ChatGPT%20Image%20Jun%2019%2C%202026%2C%2008_56_30%20PM.png",
+      "imageHint": "kids backpack"
+    },
+    {
+      "id": "category-bottles",
+      "description": "Personalized water bottles and sippers",
+      "imageUrl": "https://rohanwakkar.sirv.com/ChatGPT%20Image%20Jun%2019%2C%202026%2C%2009_00_07%20PM.png",
+      "imageHint": "kids bottle"
+    },
+    {
+      "id": "category-umbrellas",
+      "description": "Magical umbrellas for rainy days",
+      "imageUrl": "https://rohanwakkar.sirv.com/ChatGPT%20Image%20Jun%2019%2C%202026%2C%2009_05_54%20PM.png",
+      "imageHint": "kids umbrella"
+    },
+    {
+      "id": "category-combos",
+      "description": "Curated gift sets and combos",
+      "imageUrl": "https://rohanwakkar.sirv.com/ChatGPT%20Image%20Jun%2019%2C%202026%2C%2009_08_49%20PM.png",
+      "imageHint": "gift sets"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-main",
+      "description": "Happy children playing with personalized gift boxes",
+      "imageUrl": "https://picsum.photos/seed/kids-happy-hero/1200/800",
+      "imageHint": "happy kids"
+    },
+    {
+      "id": "backpack-pink",
+      "description": "Cute personalized pink school backpack for girls",
+      "imageUrl": "https://picsum.photos/seed/pink-backpack-kids/600/600",
+      "imageHint": "kids backpack"
+    },
+    {
+      "id": "backpack-dino",
+      "description": "Dinosaur themed school backpack for boys",
+      "imageUrl": "https://picsum.photos/seed/dino-backpack-kids/600/600",
+      "imageHint": "dino backpack"
+    },
+    {
+      "id": "lunch-bag-blue",
+      "description": "Insulated blue lunch bag with customized name",
+      "imageUrl": "https://picsum.photos/seed/blue-lunch-kids/600/600",
+      "imageHint": "kids lunchbag"
+    },
+    {
+      "id": "bottle-steel",
+      "description": "Personalized stainless steel water bottle for school",
+      "imageUrl": "https://picsum.photos/seed/kids-water-bottle/600/600",
+      "imageHint": "kids bottle"
+    },
+    {
+      "id": "toy-wooden",
+      "description": "Educational wooden alphabet block toys for toddlers",
+      "imageUrl": "https://picsum.photos/seed/wooden-toys-kids/600/600",
+      "imageHint": "wooden toys"
+    },
+    {
+      "id": "teddy-bear",
+      "description": "Soft plush teddy bear with customized embroidery",
+      "imageUrl": "https://picsum.photos/seed/plush-teddy-kids/600/600",
+      "imageHint": "teddy bear"
+    },
+    {
+      "id": "customer-1",
+      "description": "A happy child hugging their new personalized gift",
+      "imageUrl": "https://picsum.photos/seed/happy-child-hug/400/400",
+      "imageHint": "happy child"
+    },
+    {
+      "id": "social-1",
+      "description": "Kids unboxing personalized gifts at a birthday party",
+      "imageUrl": "https://picsum.photos/seed/kids-party-fun/500/500",
+      "imageHint": "kids party"
+    },
+    {
+      "id": "social-2",
+      "description": "Toddler playing with customized sensory toys",
+      "imageUrl": "https://picsum.photos/seed/toddler-playtime/500/500",
+      "imageHint": "toddler playing"
+    },
+    {
+      "id": "category-hampers",
+      "description": "A beautiful collection of kids gift hampers",
+      "imageUrl": "https://picsum.photos/seed/kids-gift-hampers/600/600",
+      "imageHint": "gift hamper"
+    },
+    {
+      "id": "category-toys",
+      "description": "Vibrant assortment of toys and educational games",
+      "imageUrl": "https://picsum.photos/seed/kids-toy-collection/600/600",
+      "imageHint": "kids toys"
+    },
+    {
+      "id": "category-stationery",
+      "description": "Colorful pencils and notebooks for children",
+      "imageUrl": "https://picsum.photos/seed/kids-stationery/600/600",
+      "imageHint": "kids stationery"
+    }
+  ]
+}

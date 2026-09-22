@@ -1,0 +1,22 @@
+rules_version = '2';
+
+// Craft rules based on data in your Firestore database
+// allow write: if firestore.get(
+//    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Check if user is admin
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.email == 'rohanswakkargiftartstudio@gmail.com' ||
+        request.auth.token.email == 'testadmin@budgetdev.com' ||
+        firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role in ['ADMIN', 'SUPER_ADMIN']
+      );
+    }
+    
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
