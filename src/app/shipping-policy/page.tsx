@@ -83,8 +83,6 @@ export default function ShippingPolicyPage() {
 
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }

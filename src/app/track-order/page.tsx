@@ -71,8 +71,6 @@ export default function TrackOrderPage() {
           ))}
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }

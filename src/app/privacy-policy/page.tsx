@@ -87,8 +87,6 @@ export default function PrivacyPolicyPage() {
           <button className="bg-white text-slate-900 px-10 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-sky-50 transition-colors">Contact Privacy Team</button>
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }

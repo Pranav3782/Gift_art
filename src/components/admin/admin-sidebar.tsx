@@ -39,7 +39,11 @@ const CORE_ITEMS = [
   { label: 'SEO Settings', href: '/admin/seo', icon: Search },
 ];
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  onClose?: () => void;
+}
+
+export function AdminSidebar({ onClose }: AdminSidebarProps = {}) {
   const pathname = usePathname();
   const router = useRouter();
   const auth = useAuth();
@@ -59,10 +63,14 @@ export function AdminSidebar() {
     );
   };
 
+  const handleLinkClick = () => {
+    if (onClose) onClose();
+  };
+
   return (
-    <aside className="w-72 bg-white border-r border-slate-100 flex flex-col h-screen sticky top-0 overflow-y-auto scrollbar-hide">
-      <div className="p-8 shrink-0">
-        <Link href="/admin/dashboard" className="flex items-center gap-3">
+    <aside className="w-full lg:w-72 bg-white border-r border-slate-100 flex flex-col h-full lg:h-screen sticky top-0 overflow-y-auto scrollbar-hide">
+      <div className="p-6 lg:p-8 shrink-0 flex items-center justify-between">
+        <Link href="/admin/dashboard" onClick={handleLinkClick} className="flex items-center gap-3">
           <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
             <Gift className="h-6 w-6" />
           </div>
@@ -82,6 +90,7 @@ export function AdminSidebar() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={handleLinkClick}
                 className={cn(
                   "group flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300",
                   isActive 
@@ -117,15 +126,13 @@ export function AdminSidebar() {
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-1 pl-10 pr-2 pb-2">
               {categories?.map((cat) => {
-                // Now they go to a unified product page that can filter by category id/slug, or just list them all.
-                // For backward compatibility and smooth migration, we can link them to /admin/products?categorySlug=...
-                // Or better yet, we just link them to the main products page where they can filter.
                 const href = `/admin/products?category=${cat.slug}`;
                 const isActive = pathname === '/admin/products' && typeof window !== 'undefined' && window.location.search.includes(`category=${cat.slug}`);
                 return (
                   <Link
                     key={cat.id}
                     href={href}
+                    onClick={handleLinkClick}
                     className={cn(
                       "block px-4 py-2.5 rounded-xl text-xs font-bold transition-all",
                       isActive 
@@ -147,7 +154,10 @@ export function AdminSidebar() {
 
       <div className="p-6 border-t border-slate-50 shrink-0">
         <button
-          onClick={() => auth && signOut(auth).then(() => router.push('/admin/login'))}
+          onClick={() => {
+            if (onClose) onClose();
+            if (auth) signOut(auth).then(() => router.push('/admin/login'));
+          }}
           className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all font-bold text-sm"
         >
           <LogOut className="h-5 w-5" /> Sign Out

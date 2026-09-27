@@ -101,8 +101,6 @@ export default function ReturnsRefundsPage() {
 
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { AlertCircle, RefreshCw, ShoppingBag, HeadphonesIcon, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -60,10 +59,6 @@ export default function FailurePage() {
              </button>
           </div>
         </motion.div>
-      </div>
-
-      <div className="hidden lg:block">
-        <Footer />
       </div>
     </main>
   );

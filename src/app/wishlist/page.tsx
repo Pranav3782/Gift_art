@@ -207,8 +207,6 @@ export default function WishlistPage() {
           </div>
         )}
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ShoppingBag, ArrowRight, Star, Heart, Sparkles, MapPin } from 'lucide-react';
 import Link from 'next/link';
@@ -106,10 +105,6 @@ export default function SuccessPage() {
              <MapPin className="h-3 w-3" /> Crafted in Noida, UP • Delivered Worldwide
           </div>
         </motion.div>
-      </div>
-
-      <div className="hidden lg:block">
-        <Footer />
       </div>
     </main>
   );

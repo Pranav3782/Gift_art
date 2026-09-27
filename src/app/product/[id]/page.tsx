@@ -24,7 +24,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       <Navbar />
       <KidsDecor />
 
-      <div className="pt-28 md:pt-36 lg:pt-40 pb-24 relative z-10">
+      <div className="pt-32 md:pt-36 lg:pt-44 pb-16 relative z-10">
         {loading ? (
           <div className="h-[60vh] flex flex-col items-center justify-center space-y-4">
             <Loader2 className="h-10 w-10 animate-spin text-sky-500" />
@@ -33,7 +33,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         ) : product ? (
           <>
             <ProductDetails product={product} />
-            <div className="mt-20">
+            <div className="mt-8 md:mt-12">
               <RelatedProducts currentProductId={product.id} category={product.category} />
             </div>
           </>
@@ -52,8 +52,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           </div>
         )}
       </div>
-
-      <Footer />
     </main>
   );
 }

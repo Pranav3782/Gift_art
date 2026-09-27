@@ -33,6 +33,11 @@ export function FilterSidebar({ category }: FilterSidebarProps) {
 
   const [price, setPrice] = useState([Number(searchParams.get('maxPrice')) || 5000]);
   const [rating, setRating] = useState(searchParams.get('rating') || '0');
+  const [sort, setSort] = useState(searchParams.get('sort') || 'featured');
+  const [itemsPerPage, setItemsPerPage] = useState(searchParams.get('itemsPerPage') || '20');
+
+  const [isSortOpen, setIsSortOpen] = useState(true);
+  const [isItemsPerPageOpen, setIsItemsPerPageOpen] = useState(true);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
   const [isAvailabilityOpen, setIsAvailabilityOpen] = useState(true);
   const [availability, setAvailability] = useState<'in-stock' | 'out-of-stock' | 'all'>('all');
@@ -53,6 +58,8 @@ export function FilterSidebar({ category }: FilterSidebarProps) {
     const query = createQueryString({
       maxPrice: price[0].toString(),
       rating: rating !== '0' ? rating : null,
+      sort: sort !== 'featured' ? sort : null,
+      itemsPerPage: itemsPerPage !== '20' ? itemsPerPage : null,
     });
     router.push(`${pathname}?${query}`, { scroll: false });
   };
@@ -60,12 +67,14 @@ export function FilterSidebar({ category }: FilterSidebarProps) {
   const handleReset = () => {
     setPrice([5000]);
     setRating('0');
+    setSort('featured');
+    setItemsPerPage('20');
     setAvailability('all');
     router.push(pathname, { scroll: false });
   };
 
   return (
-    <div className="space-y-10 lg:sticky lg:top-32">
+    <div className="space-y-8 lg:sticky lg:top-32">
       <div className="flex items-center justify-between pb-4 border-b border-slate-100">
         <h3 className="font-headline font-black text-xs uppercase tracking-[0.25em] text-slate-800 flex items-center gap-2">
           <SlidersHorizontal className="h-4 w-4 text-[#7E22CE]" /> Filters
@@ -76,6 +85,63 @@ export function FilterSidebar({ category }: FilterSidebarProps) {
         >
           Reset
         </button>
+      </div>
+
+      {/* Sort By Panel */}
+      <div className="space-y-4">
+        <button 
+          type="button"
+          onClick={() => setIsSortOpen(!isSortOpen)}
+          className="w-full flex items-center justify-between font-black text-[11px] uppercase tracking-widest text-slate-800 border-b border-slate-50 pb-2 text-left"
+        >
+          <span>Sort By</span>
+          {isSortOpen ? <ChevronUp className="h-3.5 w-3.5 text-slate-400" /> : <ChevronDown className="h-3.5 w-3.5 text-slate-400" />}
+        </button>
+        {isSortOpen && (
+          <RadioGroup value={sort} onValueChange={setSort} className="space-y-2.5 pl-1">
+            {[
+              { label: 'Featured', value: 'featured' },
+              { label: 'Best Selling', value: 'best-selling' },
+              { label: 'Price, Low to High', value: 'low-high' },
+              { label: 'Price, High to Low', value: 'high-low' },
+              { label: 'Alphabetically, A-Z', value: 'alpha-asc' },
+              { label: 'Alphabetically, Z-A', value: 'alpha-desc' },
+              { label: 'Date, New to Old', value: 'date-new' },
+              { label: 'Date, Old to New', value: 'date-old' },
+            ].map((item) => (
+              <div key={item.value} className="flex items-center gap-3">
+                <RadioGroupItem value={item.value} id={`sort-${item.value}`} className="border-purple-200 text-[#7E22CE]" />
+                <Label htmlFor={`sort-${item.value}`} className="text-xs font-bold text-slate-600 cursor-pointer">
+                  {item.label}
+                </Label>
+              </div>
+            ))}
+          </RadioGroup>
+        )}
+      </div>
+
+      {/* Items Per Page Panel */}
+      <div className="space-y-4">
+        <button 
+          type="button"
+          onClick={() => setIsItemsPerPageOpen(!isItemsPerPageOpen)}
+          className="w-full flex items-center justify-between font-black text-[11px] uppercase tracking-widest text-slate-800 border-b border-slate-50 pb-2 text-left"
+        >
+          <span>Items Per Page</span>
+          {isItemsPerPageOpen ? <ChevronUp className="h-3.5 w-3.5 text-slate-400" /> : <ChevronDown className="h-3.5 w-3.5 text-slate-400" />}
+        </button>
+        {isItemsPerPageOpen && (
+          <RadioGroup value={itemsPerPage} onValueChange={setItemsPerPage} className="flex flex-wrap gap-2.5 pl-1">
+            {['12', '20', '36', 'all'].map((val) => (
+              <div key={val} className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-100">
+                <RadioGroupItem value={val} id={`ipp-${val}`} className="border-purple-200 text-[#7E22CE]" />
+                <Label htmlFor={`ipp-${val}`} className="text-xs font-black uppercase text-slate-700 cursor-pointer">
+                  {val === 'all' ? 'All' : val}
+                </Label>
+              </div>
+            ))}
+          </RadioGroup>
+        )}
       </div>
 
       {/* Categories Panel */}

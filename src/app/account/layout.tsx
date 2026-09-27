@@ -2,7 +2,6 @@
 
 import { useUser } from '@/firebase';
 import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { 
@@ -55,27 +54,27 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col">
       <Navbar />
-      <main className="flex-1 container mx-auto px-4 py-12 pt-28 lg:pt-36">
-        {/* Mobile Collapsible Account Menu */}
-        <div className="lg:hidden mb-8 relative z-30">
+      <main className="flex-1 container mx-auto px-4 py-8 pt-36 md:pt-40 lg:pt-44">
+        {/* Mobile Collapsible Account Menu (With Top Clearance) */}
+        <div className="lg:hidden mb-6 relative z-30 pt-1">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-full bg-white rounded-2xl p-4 border border-slate-100 shadow-sm flex items-center justify-between text-slate-700 font-bold text-sm"
+            className="w-full bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-sm flex items-center justify-between text-slate-800 font-bold text-xs sm:text-sm active:scale-[0.99] transition-all"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-sky-50 flex items-center justify-center text-sky-600">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600 border border-sky-100">
                 {(() => {
                   const ActiveIcon = navItems.find(item => item.href === pathname)?.icon || User;
-                  return <ActiveIcon className="h-5 w-5" />;
+                  return <ActiveIcon className="h-4 w-4" />;
                 })()}
               </div>
-              <span>{navItems.find(item => item.href === pathname)?.label || 'Profile Settings'}</span>
+              <span className="font-black tracking-tight">{navItems.find(item => item.href === pathname)?.label || 'Profile Settings'}</span>
             </div>
-            <ChevronRight className={cn("h-5 w-5 text-slate-400 transition-transform", isMobileMenuOpen && "rotate-90")} />
+            <ChevronRight className={cn("h-4 w-4 text-slate-400 transition-transform duration-300", isMobileMenuOpen && "rotate-90 text-sky-600")} />
           </button>
 
           {isMobileMenuOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-slate-100 shadow-xl z-50 p-2 space-y-1">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-slate-200/80 shadow-xl z-50 p-2 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 const ItemIcon = item.icon;
@@ -85,10 +84,10 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
-                      "flex items-center justify-between px-4 py-3 rounded-xl transition-all",
+                      "flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all",
                       isActive 
                         ? "bg-sky-50 text-sky-600 font-black" 
-                        : "text-slate-500 hover:bg-slate-50"
+                        : "text-slate-600 hover:bg-slate-50"
                     )}
                   >
                     <div className="flex items-center gap-3">
@@ -99,13 +98,13 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                   </Link>
                 );
               })}
-              <div className="pt-2 mt-2 border-t border-slate-50 px-2">
+              <div className="pt-2 mt-2 border-t border-slate-100 px-2">
                 <button 
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     auth && signOut(auth);
                   }}
-                  className="w-full flex items-center gap-3 px-2 py-3 text-slate-400 hover:text-rose-500 rounded-xl transition-all font-bold text-xs"
+                  className="w-full flex items-center gap-3 px-2 py-2.5 text-slate-400 hover:text-rose-500 rounded-xl transition-all font-bold text-xs"
                 >
                   <LogOut className="h-4 w-4" />
                   Sign Out
@@ -166,7 +165,6 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

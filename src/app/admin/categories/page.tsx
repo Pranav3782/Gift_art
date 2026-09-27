@@ -5,6 +5,7 @@ import { useFirestore, useCollection } from '@/firebase';
 import { collection, query, orderBy, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { Category } from '@/lib/types';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Plus, Edit2, Trash2, Power, Loader2, Tag } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -90,8 +91,12 @@ export default function AdminCategoriesPage() {
             {categories?.map((cat) => (
               <div key={cat.id} className="p-6 flex items-center justify-between hover:bg-slate-50 transition-colors">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600">
-                    <Tag className="w-5 h-5" />
+                  <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 relative overflow-hidden border border-slate-100 shrink-0">
+                    {cat.image ? (
+                      <Image src={cat.image} alt={cat.name} fill className="object-cover" unoptimized />
+                    ) : (
+                      <Tag className="w-5 h-5" />
+                    )}
                   </div>
                   <div>
                     <h3 className="font-black text-slate-800">{cat.name}</h3>

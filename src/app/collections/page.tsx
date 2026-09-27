@@ -99,8 +99,6 @@ export default function CollectionsPage() {
           </section>
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }

@@ -87,8 +87,6 @@ export default function TermsConditionsPage() {
           <button className="bg-sky-600 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-sky-700 transition-colors shadow-xl shadow-sky-100">Chat with Us</button>
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }
