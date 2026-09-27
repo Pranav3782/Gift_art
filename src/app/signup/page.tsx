@@ -77,91 +77,91 @@ export default function SignupPage() {
     <main className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      <div className="flex-1 flex flex-col justify-center items-center px-4 py-12 pt-32 md:pt-36 lg:pt-40 pb-16 w-full">
-        <div className="w-full max-w-lg space-y-6">
-          <div className="text-center space-y-2">
-            <div className="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 shadow-inner">
-              <UserPlus className="h-7 w-7" />
+      <div className="flex-1 flex flex-col justify-center items-center px-4 pt-28 md:pt-32 pb-12 w-full">
+        <div className="w-full max-w-sm space-y-5">
+          <div className="text-center space-y-1.5">
+            <div className="w-12 h-12 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 shadow-inner">
+              <UserPlus className="h-6 w-6" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-headline font-black text-slate-900 tracking-tight">
+            <h1 className="text-2xl md:text-3xl font-headline font-black text-slate-900 tracking-tight">
               Join the <span className="text-sky-600 italic">Studio</span>
             </h1>
-            <p className="text-sm text-slate-500 font-medium">
-              Create your account to start unboxing magical gifts.
+            <p className="text-xs text-slate-500 font-medium">
+              Create your account to unbox magical gifts.
             </p>
           </div>
 
-          <form onSubmit={handleSignup} className="space-y-4 text-left">
-            <div className="space-y-1.5">
-              <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Full Name</Label>
+          <form onSubmit={handleSignup} className="space-y-3 text-left">
+            <div className="space-y-1">
+              <Label className="text-[11px] font-bold text-slate-700 ml-0.5">Full Name</Label>
               <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <Input 
                   required
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
                   placeholder="Rahul Sharma" 
-                  className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
+                  className="pl-10 h-10 rounded-xl border border-slate-200 focus-visible:ring-sky-600 bg-slate-50/40 text-xs font-medium focus:bg-white transition-colors" 
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Email</Label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <Label className="text-[11px] font-bold text-slate-700 ml-0.5">Email</Label>
                 <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input 
                     required
                     type="email"
                     value={formData.email}
                     onChange={e => setFormData({...formData, email: e.target.value})}
                     placeholder="email@example.com" 
-                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
+                    className="pl-10 h-10 rounded-xl border border-slate-200 focus-visible:ring-sky-600 bg-slate-50/40 text-xs font-medium focus:bg-white transition-colors" 
                   />
                 </div>
               </div>
-              <div className="space-y-1.5">
-                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Phone</Label>
+              <div className="space-y-1">
+                <Label className="text-[11px] font-bold text-slate-700 ml-0.5">Phone</Label>
                 <div className="relative">
-                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                  <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input 
                     required
                     value={formData.phone}
                     onChange={e => setFormData({...formData, phone: e.target.value})}
-                    placeholder="+91" 
-                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
+                    placeholder="+91 9876543210" 
+                    className="pl-10 h-10 rounded-xl border border-slate-200 focus-visible:ring-sky-600 bg-slate-50/40 text-xs font-medium focus:bg-white transition-colors" 
                   />
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Password</Label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <Label className="text-[11px] font-bold text-slate-700 ml-0.5">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input 
                     required
                     type="password"
                     value={formData.password}
                     onChange={e => setFormData({...formData, password: e.target.value})}
                     placeholder="••••••••" 
-                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
+                    className="pl-10 h-10 rounded-xl border border-slate-200 focus-visible:ring-sky-600 bg-slate-50/40 text-xs font-medium focus:bg-white transition-colors" 
                   />
                 </div>
               </div>
-              <div className="space-y-1.5">
-                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Confirm Password</Label>
+              <div className="space-y-1">
+                <Label className="text-[11px] font-bold text-slate-700 ml-0.5">Confirm</Label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input 
                     required
                     type="password"
                     value={formData.confirmPassword}
                     onChange={e => setFormData({...formData, confirmPassword: e.target.value})}
                     placeholder="••••••••" 
-                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
+                    className="pl-10 h-10 rounded-xl border border-slate-200 focus-visible:ring-sky-600 bg-slate-50/40 text-xs font-medium focus:bg-white transition-colors" 
                   />
                 </div>
               </div>
@@ -169,15 +169,15 @@ export default function SignupPage() {
 
             <Button 
               disabled={loading}
-              className="w-full h-14 bg-sky-600 hover:bg-sky-700 text-white rounded-2xl font-bold uppercase tracking-wider text-xs gap-2 shadow-lg shadow-sky-500/20 active:scale-[0.99] transition-all mt-2"
+              className="w-full h-11 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-bold text-xs tracking-wide gap-2 shadow-md shadow-sky-500/15 active:scale-[0.99] transition-all mt-1"
             >
-              {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Create Account <ArrowRight className="h-5 w-5" /></>}
+              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Create Account <ArrowRight className="h-4 w-4" /></>}
             </Button>
           </form>
 
-          <div className="text-center pt-2">
-            <p className="text-sm text-slate-500 font-medium">
-              Already have an account? <Link href="/login" className="text-sky-600 font-black uppercase tracking-wider hover:underline ml-1">Log In</Link>
+          <div className="text-center pt-1">
+            <p className="text-xs text-slate-500 font-medium">
+              Already have an account? <Link href="/login" className="text-sky-600 font-bold hover:underline ml-1">Log In</Link>
             </p>
           </div>
         </div>

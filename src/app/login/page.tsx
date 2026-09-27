@@ -57,73 +57,74 @@ export default function LoginPage() {
     <main className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      <div className="flex-1 flex flex-col justify-center items-center px-4 py-12 pt-32 md:pt-36 lg:pt-40 pb-16 w-full">
-        <div className="w-full max-w-md space-y-8">
-          <div className="text-center space-y-3">
-            <div className="w-16 h-16 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 shadow-inner">
-              <CircleUser className="h-8 w-8" />
+      <div className="flex-1 flex flex-col justify-center items-center px-4 pt-28 md:pt-32 pb-12 w-full">
+        <div className="w-full max-w-sm space-y-6">
+          <div className="text-center space-y-2">
+            <div className="w-12 h-12 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 shadow-inner">
+              <CircleUser className="h-6 w-6" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-headline font-black text-slate-900 tracking-tight">
+            <h1 className="text-2xl md:text-3xl font-headline font-black text-slate-900 tracking-tight">
               Welcome <span className="text-sky-600 italic">Back</span>
             </h1>
-            <p className="text-sm text-slate-500 font-medium max-w-xs mx-auto">
-              Sign in to manage your magical orders and wishlist.
+            <p className="text-xs text-slate-500 font-medium max-w-[260px] mx-auto">
+              Sign in to manage your orders & wishlist.
             </p>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-5 text-left">
-            <div className="space-y-2">
-              <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Email Address</Label>
+          <form onSubmit={handleLogin} className="space-y-4 text-left">
+            <div className="space-y-1.5">
+              <Label className="text-[11px] font-bold text-slate-700 ml-0.5">Email Address</Label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <Input 
                   required
                   type="email" 
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="rahul@example.com" 
-                  className="pl-12 h-14 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-base font-medium" 
+                  placeholder="name@example.com" 
+                  className="pl-10 h-11 rounded-xl border border-slate-200 focus-visible:ring-sky-600 bg-slate-50/40 text-xs font-medium focus:bg-white transition-colors" 
                 />
               </div>
             </div>
-            <div className="space-y-2">
-              <div className="flex justify-between items-center px-1">
-                <Label className="text-xs font-black uppercase tracking-wider text-slate-500">Password</Label>
-                <button type="button" className="text-xs font-bold text-sky-600 hover:underline">Forgot Password?</button>
+
+            <div className="space-y-1.5">
+              <div className="flex justify-between items-center px-0.5">
+                <Label className="text-[11px] font-bold text-slate-700">Password</Label>
+                <button type="button" className="text-[11px] font-bold text-sky-600 hover:underline">Forgot?</button>
               </div>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <Input 
                   required
                   type="password" 
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   placeholder="••••••••" 
-                  className="pl-12 h-14 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-base font-medium" 
+                  className="pl-10 h-11 rounded-xl border border-slate-200 focus-visible:ring-sky-600 bg-slate-50/40 text-xs font-medium focus:bg-white transition-colors" 
                 />
               </div>
             </div>
 
             <Button 
               disabled={loading}
-              className="w-full h-14 bg-sky-600 hover:bg-sky-700 text-white rounded-2xl font-bold uppercase tracking-wider text-xs gap-2 shadow-lg shadow-sky-500/20 active:scale-[0.99] transition-all mt-2"
+              className="w-full h-11 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-bold text-xs tracking-wide gap-2 shadow-md shadow-sky-500/15 active:scale-[0.99] transition-all mt-1"
             >
-              {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Sign In <ArrowRight className="h-5 w-5" /></>}
+              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Sign In <ArrowRight className="h-4 w-4" /></>}
             </Button>
           </form>
 
-          <div className="relative py-2">
+          <div className="relative py-1">
             <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-slate-200"></span></div>
-            <div className="relative flex justify-center text-xs uppercase"><span className="bg-white px-4 text-slate-400 font-bold tracking-wider">Or continue with</span></div>
+            <div className="relative flex justify-center text-[10px] uppercase"><span className="bg-white px-3 text-slate-400 font-bold tracking-wider">Or continue with</span></div>
           </div>
 
-          <Button variant="outline" onClick={handleGoogleLogin} className="w-full h-14 rounded-2xl gap-3 border-2 border-slate-200 hover:bg-slate-50 font-bold text-xs uppercase tracking-tight active:scale-[0.99] transition-all">
-            <img src="https://www.google.com/favicon.ico" className="w-4 h-4" alt="" /> Google Login
+          <Button variant="outline" onClick={handleGoogleLogin} className="w-full h-11 rounded-xl gap-2.5 border border-slate-200 hover:bg-slate-50 font-bold text-xs tracking-tight active:scale-[0.99] transition-all">
+            <img src="https://www.google.com/favicon.ico" className="w-4 h-4" alt="Google" /> Google Login
           </Button>
 
-          <div className="text-center pt-2">
-            <p className="text-sm text-slate-500 font-medium">
-              Don't have an account? <Link href="/signup" className="text-sky-600 font-black uppercase tracking-wider hover:underline ml-1">Create One</Link>
+          <div className="text-center pt-1">
+            <p className="text-xs text-slate-500 font-medium">
+              Don't have an account? <Link href="/signup" className="text-sky-600 font-bold hover:underline ml-1">Create One</Link>
             </p>
           </div>
         </div>
