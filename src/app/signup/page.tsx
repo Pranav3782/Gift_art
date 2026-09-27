@@ -77,10 +77,10 @@ export default function SignupPage() {
     <main className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      <div className="flex-1 flex flex-col justify-center items-center px-4 pt-36 sm:pt-40 md:pt-44 lg:pt-48 pb-16 w-full">
+      <div className="flex-1 flex flex-col justify-center items-center px-4 pt-24 md:pt-28 pb-10 w-full">
         <div className="w-full max-w-sm space-y-5">
-          <div className="text-center space-y-2">
-            <div className="w-13 h-13 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 shadow-inner mt-4 sm:mt-6 mb-2">
+          <div className="text-center space-y-1.5">
+            <div className="w-12 h-12 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 shadow-inner">
               <UserPlus className="h-6 w-6" />
             </div>
             <h1 className="text-2xl md:text-3xl font-headline font-black text-slate-900 tracking-tight">
