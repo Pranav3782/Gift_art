@@ -74,90 +74,94 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-slate-50">
+    <main className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      <div className="flex-1 flex items-start md:items-center justify-center p-4 pt-36 md:pt-28 lg:pt-36 pb-8">
-        <div className="w-full max-w-lg bg-white rounded-[3.5rem] p-8 md:p-10 shadow-2xl border border-slate-100 text-center space-y-5 relative overflow-hidden">
-          <div className="space-y-1">
-            <div className="w-12 h-12 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 mb-1 shadow-inner">
-              <UserPlus className="h-6 w-6" />
+      <div className="flex-1 flex flex-col justify-center items-center px-4 py-12 pt-32 md:pt-36 lg:pt-40 pb-16 w-full">
+        <div className="w-full max-w-lg space-y-6">
+          <div className="text-center space-y-2">
+            <div className="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto text-sky-600 shadow-inner">
+              <UserPlus className="h-7 w-7" />
             </div>
-            <h1 className="text-2xl font-headline font-black text-slate-800 tracking-tight">Join the <span className="text-sky-600 italic">Studio</span></h1>
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.1em]">Create your account to start unboxing magic.</p>
+            <h1 className="text-3xl md:text-4xl font-headline font-black text-slate-900 tracking-tight">
+              Join the <span className="text-sky-600 italic">Studio</span>
+            </h1>
+            <p className="text-sm text-slate-500 font-medium">
+              Create your account to start unboxing magical gifts.
+            </p>
           </div>
 
-          <form onSubmit={handleSignup} className="space-y-3.5 text-left">
-            <div className="space-y-1">
-              <Label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-4">Full Name</Label>
+          <form onSubmit={handleSignup} className="space-y-4 text-left">
+            <div className="space-y-1.5">
+              <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Full Name</Label>
               <div className="relative">
-                <User className="absolute left-5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300" />
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                 <Input 
                   required
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
                   placeholder="Rahul Sharma" 
-                  className="pl-12 h-12 rounded-2xl border-2 border-slate-100 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-bold" 
+                  className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-1">
-                <Label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-4">Email</Label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Email</Label>
                 <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300" />
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                   <Input 
                     required
                     type="email"
                     value={formData.email}
                     onChange={e => setFormData({...formData, email: e.target.value})}
-                    placeholder="email@box.com" 
-                    className="pl-11 h-12 rounded-2xl border-2 border-slate-100 focus-visible:ring-sky-600 bg-slate-50/50 text-xs font-bold" 
+                    placeholder="email@example.com" 
+                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
                   />
                 </div>
               </div>
-              <div className="space-y-1">
-                <Label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-4">Phone</Label>
+              <div className="space-y-1.5">
+                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Phone</Label>
                 <div className="relative">
-                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300" />
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                   <Input 
                     required
                     value={formData.phone}
                     onChange={e => setFormData({...formData, phone: e.target.value})}
                     placeholder="+91" 
-                    className="pl-11 h-12 rounded-2xl border-2 border-slate-100 focus-visible:ring-sky-600 bg-slate-50/50 text-xs font-bold" 
+                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
                   />
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-1">
-                <Label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-4">Password</Label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300" />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                   <Input 
                     required
                     type="password"
                     value={formData.password}
                     onChange={e => setFormData({...formData, password: e.target.value})}
                     placeholder="••••••••" 
-                    className="pl-11 h-12 rounded-2xl border-2 border-slate-100 focus-visible:ring-sky-600 bg-slate-50/50 text-xs font-bold" 
+                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
                   />
                 </div>
               </div>
-              <div className="space-y-1">
-                <Label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-4">Confirm</Label>
+              <div className="space-y-1.5">
+                <Label className="text-xs font-black uppercase tracking-wider text-slate-500 ml-1">Confirm Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300" />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                   <Input 
                     required
                     type="password"
                     value={formData.confirmPassword}
                     onChange={e => setFormData({...formData, confirmPassword: e.target.value})}
                     placeholder="••••••••" 
-                    className="pl-11 h-12 rounded-2xl border-2 border-slate-100 focus-visible:ring-sky-600 bg-slate-50/50 text-xs font-bold" 
+                    className="pl-12 h-13 rounded-2xl border-2 border-slate-200 focus-visible:ring-sky-600 bg-slate-50/50 text-sm font-medium" 
                   />
                 </div>
               </div>
@@ -165,15 +169,17 @@ export default function SignupPage() {
 
             <Button 
               disabled={loading}
-              className="w-full h-14 bg-sky-600 hover:bg-sky-700 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] gap-2 shadow-xl shadow-sky-500/20 active:scale-95 transition-all mt-2"
+              className="w-full h-14 bg-sky-600 hover:bg-sky-700 text-white rounded-2xl font-bold uppercase tracking-wider text-xs gap-2 shadow-lg shadow-sky-500/20 active:scale-[0.99] transition-all mt-2"
             >
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Create Account <ArrowRight className="h-4 w-4" /></>}
+              {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Create Account <ArrowRight className="h-5 w-5" /></>}
             </Button>
           </form>
 
-          <p className="text-[11px] text-slate-400 font-bold pt-1">
-            Already have an account? <Link href="/login" className="text-sky-600 font-black uppercase tracking-widest hover:underline ml-1">Log In</Link>
-          </p>
+          <div className="text-center pt-2">
+            <p className="text-sm text-slate-500 font-medium">
+              Already have an account? <Link href="/login" className="text-sky-600 font-black uppercase tracking-wider hover:underline ml-1">Log In</Link>
+            </p>
+          </div>
         </div>
       </div>
     </main>
