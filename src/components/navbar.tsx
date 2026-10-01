@@ -246,7 +246,7 @@ export function Navbar() {
     <div
       className={cn(
         "absolute left-1/2 -translate-x-1/2",
-        isDesktop ? "-top-[55px]" : "-top-10"
+        isDesktop ? "-top-[30px]" : "-top-10"
       )}
       style={{
         width: "100vw",
