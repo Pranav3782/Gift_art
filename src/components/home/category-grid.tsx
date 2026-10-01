@@ -162,11 +162,11 @@ export function CategoryGrid({ cms }: { cms?: any }) {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ delay: i * 0.05, duration: 0.4 }}
                       viewport={{ once: true }}
-                      className="relative overflow-visible"
+                      className="relative overflow-hidden"
                     >
                       <Link 
                         href={cat.url || '#'}
-                        className="block rounded-[2.2rem] aspect-[3/3.6] relative border-4 border-white shadow-lg overflow-visible"
+                        className="block rounded-[2.2rem] aspect-[3/3.6] relative border-4 border-white shadow-lg overflow-hidden flex flex-col justify-between"
                         style={{ backgroundColor: cat.backgroundColor || DEFAULT_MOCK.cards[globalIdx % 4]?.backgroundColor || '#F1F5F9' }}
                       >
                         {/* Title matching Desktop View Style */}
@@ -178,12 +178,12 @@ export function CategoryGrid({ cms }: { cms?: any }) {
 
                         {/* Image */}
                         {cat.imageUrl && (
-                          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[110%] h-[88%] pointer-events-none">
+                          <div className="relative w-full h-[78%] pointer-events-none mt-auto">
                             <Image 
                               src={cat.imageUrl} 
                               alt={cat.title} 
                               fill 
-                              className="object-contain object-bottom drop-shadow-[0_15px_15px_rgba(0,0,0,0.18)]"
+                              className="object-contain object-bottom p-2 drop-shadow-[0_10px_10px_rgba(0,0,0,0.15)]"
                               unoptimized
                             />
                           </div>
@@ -229,23 +229,23 @@ export function CategoryGrid({ cms }: { cms?: any }) {
                 <Link 
                   href={cat.url || '#'}
                   className={cn(
-                    "block rounded-[2.5rem] md:rounded-[3rem] aspect-[3/3.4] relative transition-all duration-700 hover:shadow-[0_45px_90px_-20px_rgba(0,0,0,0.25)] border-4 border-white shadow-lg overflow-visible"
+                    "block rounded-[2.5rem] md:rounded-[3rem] aspect-[3/3.4] relative transition-all duration-700 hover:shadow-[0_45px_90px_-20px_rgba(0,0,0,0.25)] border-4 border-white shadow-lg overflow-hidden flex flex-col justify-between"
                   )}
                   style={{ backgroundColor: cat.backgroundColor || DEFAULT_MOCK.cards[i % 4]?.backgroundColor || '#F1F5F9' }}
                 >
-                  <div className="p-5 md:p-6 flex flex-col items-center">
+                  <div className="p-5 md:p-6 flex flex-col items-center z-10 relative">
                     <h3 className="font-headline font-black text-lg md:text-xl lg:text-2xl tracking-widest text-white drop-shadow-md mt-2 uppercase text-center">
                       {cat.title}
                     </h3>
                   </div>
 
                   {cat.imageUrl && (
-                    <div className="absolute -bottom-8 md:-bottom-12 left-1/2 -translate-x-1/2 w-[110%] md:w-[115%] h-[90%] md:h-[100%] transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 origin-bottom pointer-events-none">
+                    <div className="relative w-full h-[80%] transition-all duration-500 group-hover:scale-105 origin-bottom pointer-events-none mt-auto">
                       <Image 
                         src={cat.imageUrl} 
                         alt={cat.title} 
                         fill 
-                        className="object-contain object-bottom drop-shadow-[0_20px_20px_rgba(0,0,0,0.25)]"
+                        className="object-contain object-bottom p-3 md:p-4 drop-shadow-[0_15px_15px_rgba(0,0,0,0.2)]"
                         unoptimized
                       />
                     </div>
