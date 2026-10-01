@@ -246,7 +246,7 @@ export const ProductCard = memo(({ product }: ProductCardProps) => {
 
             <button
               onClick={handleBuyNow}
-              className="flex-1 h-8 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-black text-[9px] sm:text-[10px] uppercase tracking-wider flex items-center justify-center gap-0.5 shadow-sm shadow-sky-500/20 active:scale-95 transition-all px-1"
+              className="flex-1 h-8 rounded-lg bg-[#B57CFF] hover:bg-[#a163fa] text-white font-black text-[9px] sm:text-[10px] uppercase tracking-wider flex items-center justify-center gap-0.5 shadow-sm shadow-purple-500/20 active:scale-95 transition-all px-1"
               title="Buy Now"
             >
               <span>Buy Now</span>

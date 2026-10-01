@@ -169,7 +169,7 @@ export default function SignupPage() {
 
             <Button 
               disabled={loading}
-              className="w-full h-11 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-bold text-xs tracking-wide gap-2 shadow-md shadow-sky-500/15 active:scale-[0.99] transition-all mt-1"
+              className="w-full h-11 bg-[#B57CFF] hover:bg-[#a163fa] text-white rounded-xl font-bold text-xs tracking-wide gap-2 shadow-md shadow-purple-500/15 active:scale-[0.99] transition-all mt-1"
             >
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Create Account <ArrowRight className="h-4 w-4" /></>}
             </Button>

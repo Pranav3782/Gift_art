@@ -169,19 +169,11 @@ export function CategoryGrid({ cms }: { cms?: any }) {
                         className="block rounded-[2.2rem] aspect-[3/3.6] relative border-4 border-white shadow-lg overflow-visible"
                         style={{ backgroundColor: cat.backgroundColor || DEFAULT_MOCK.cards[globalIdx % 4]?.backgroundColor || '#F1F5F9' }}
                       >
-                        {/* Badge with Category Name */}
-                        <div className="absolute top-3.5 left-1/2 -translate-x-1/2 z-10 w-auto">
-                          <div className={cn(
-                            "bg-white border-[1.5px] px-3 py-0.5 rounded-md text-center shadow-sm",
-                            colorPair.border
-                          )}>
-                            <span className={cn(
-                              "font-black text-[10px] tracking-widest uppercase block whitespace-nowrap",
-                              colorPair.text
-                            )}>
-                              {cat.title}
-                            </span>
-                          </div>
+                        {/* Title matching Desktop View Style */}
+                        <div className="p-3.5 flex flex-col items-center z-10 relative">
+                          <h3 className="font-headline font-black text-base sm:text-lg tracking-widest text-white drop-shadow-md mt-1 uppercase text-center">
+                            {cat.title}
+                          </h3>
                         </div>
 
                         {/* Image */}

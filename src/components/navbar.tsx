@@ -335,7 +335,7 @@ export function Navbar() {
             </Sheet>
           </div>
           
-          <Link href="/" className="group flex items-center gap-2.5 relative shrink-0 lg:order-1 lg:mr-auto">
+          <Link href="/" className="group flex items-center gap-2.5 relative shrink-0">
             <div className="relative">
               <div className="w-9 h-9 md:w-10 md:h-10 bg-[#0ea5e9] rounded-xl flex items-center justify-center text-white shadow-lg shadow-sky-500/20 transition-all duration-500">
                 <Gift className="w-5 h-5 drop-shadow-md" />
@@ -352,11 +352,11 @@ export function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 lg:order-2">
+          <nav className="hidden lg:flex items-center justify-evenly flex-1 mx-4 xl:mx-8">
             {NAV_STRUCTURE.map((group) => (
               group.type === 'dropdown' ? (
                 <DropdownMenu key={group.label}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 text-[11px] font-extrabold tracking-[0.1em] uppercase text-[#2E1065] hover:text-[#4C1D95] outline-none transition-colors py-2">
+                  <DropdownMenuTrigger className="flex items-center gap-1 text-[11px] font-extrabold tracking-[0.1em] uppercase text-[#2E1065] hover:text-[#4C1D95] outline-none transition-colors py-2 whitespace-nowrap">
                     {group.label} <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-100 transition-opacity" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start" sideOffset={15} className="z-[10000] min-w-[220px] p-3 rounded-2xl border-slate-100 shadow-2xl bg-white">

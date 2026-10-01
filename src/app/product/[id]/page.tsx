@@ -24,7 +24,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       <Navbar />
       <KidsDecor />
 
-      <div className="pt-32 md:pt-36 lg:pt-44 pb-16 relative z-10">
+      <div className="pt-44 sm:pt-48 md:pt-56 lg:pt-60 pb-16 relative z-10">
         {loading ? (
           <div className="h-[60vh] flex flex-col items-center justify-center space-y-4">
             <Loader2 className="h-10 w-10 animate-spin text-sky-500" />

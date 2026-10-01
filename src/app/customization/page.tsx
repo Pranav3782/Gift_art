@@ -277,7 +277,7 @@ export default function CustomizationPage() {
                   <Button 
                     disabled={isGenerating}
                     onClick={handleGenerate}
-                    className="flex-1 h-16 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-black uppercase text-sm tracking-widest gap-3 shadow-xl active:scale-95 transition-all"
+                    className="flex-1 h-16 rounded-2xl bg-[#B57CFF] hover:bg-[#a163fa] text-white font-black uppercase text-sm tracking-widest gap-3 shadow-xl active:scale-95 transition-all"
                   >
                     {isGenerating ? <Loader2 className="h-5 w-5 animate-spin" /> : <Wand2 className="h-5 w-5" />}
                     Generate AI Design

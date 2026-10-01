@@ -380,7 +380,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             <Button 
               onClick={handleBuyNow} 
               disabled={isProcessing || !isValidPrice}
-              className="flex-1 h-10 md:h-11 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-black uppercase tracking-wider text-[11px] md:text-xs gap-1 shadow-sm shadow-sky-500/20 transition-all active:scale-95 px-3"
+              className="flex-1 h-10 md:h-11 rounded-xl bg-[#B57CFF] hover:bg-[#a163fa] text-white font-black uppercase tracking-wider text-[11px] md:text-xs gap-1 shadow-sm shadow-purple-500/20 transition-all active:scale-95 px-3"
             >
               {isProcessing ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -450,7 +450,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           <Button 
             onClick={handleBuyNow}
             disabled={isProcessing}
-            className="flex-1 h-9 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-black text-[10px] uppercase tracking-wider gap-1 shadow-sm shadow-sky-500/20 active:scale-95 px-2"
+            className="flex-1 h-9 rounded-lg bg-[#B57CFF] hover:bg-[#a163fa] text-white font-black text-[10px] uppercase tracking-wider gap-1 shadow-sm shadow-purple-500/20 active:scale-95 px-2"
           >
             {isProcessing ? <Loader2 className="h-3 w-3 animate-spin" /> : <>Buy Now</>}
           </Button>
