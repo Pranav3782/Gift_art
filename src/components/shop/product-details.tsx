@@ -372,9 +372,9 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             <Button 
               onClick={handleAddToCart} 
               disabled={!isValidPrice}
-              className="flex-1 h-10 md:h-11 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-black uppercase tracking-wider text-[11px] md:text-xs gap-1.5 shadow-sm transition-all active:scale-95 px-3"
+              className="flex-1 h-10 md:h-11 rounded-xl bg-purple-200 hover:bg-purple-300 text-black font-black uppercase tracking-wider text-[11px] md:text-xs gap-1.5 shadow-sm transition-all active:scale-95 px-3"
             >
-              <ShoppingCart className="h-3.5 w-3.5" /> Add to Cart
+              <ShoppingCart className="h-3.5 w-3.5 text-black" /> Add to Cart
             </Button>
 
             <Button 
@@ -442,9 +442,9 @@ export function ProductDetails({ product }: ProductDetailsProps) {
 
           <Button 
             onClick={handleAddToCart}
-            className="flex-1 h-9 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-black text-[10px] uppercase tracking-wider gap-1 shadow-sm active:scale-95 px-2"
+            className="flex-1 h-9 rounded-lg bg-purple-200 hover:bg-purple-300 text-black font-black text-[10px] uppercase tracking-wider gap-1 shadow-sm active:scale-95 px-2"
           >
-            <ShoppingCart className="h-3 w-3" /> Add to Cart
+            <ShoppingCart className="h-3 w-3 text-black" /> Add to Cart
           </Button>
 
           <Button 

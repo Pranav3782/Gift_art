@@ -237,11 +237,11 @@ export const ProductCard = memo(({ product }: ProductCardProps) => {
           <div className="flex items-center gap-1.5 pt-0.5">
             <button
               onClick={handleAddToCart}
-              className="flex-1 h-8 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-black text-[9px] sm:text-[10px] uppercase tracking-wider flex items-center justify-center gap-1 shadow-sm active:scale-95 transition-all px-1"
+              className="flex-1 h-8 rounded-lg bg-purple-200 hover:bg-purple-300 text-black font-black text-[9px] sm:text-[10px] uppercase tracking-wider flex items-center justify-center gap-1 shadow-sm active:scale-95 transition-all px-1"
               title="Add to Cart"
             >
-              <ShoppingCart className="h-3 w-3" />
-              <span>Add</span>
+              <ShoppingCart className="h-3 w-3 text-black" />
+              <span className="text-black">Add</span>
             </button>
 
             <button
